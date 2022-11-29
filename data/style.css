@@ -1,0 +1,91 @@
+body {
+    background-color: #333;
+    color: white;
+    font-family: monospace;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(196, 196, 196);
+    font-family: monospace;
+}
+
+.navbar a {
+    float:left;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: white;
+    background-color: #333;
+}
+
+.navbar a.first {
+    color: white;
+    background-color: purple;
+}
+
+.subnav {
+    float: left;
+    overflow: hidden;
+}
+
+.subnav .subnavbutton {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbutton {
+    background-color: rgb(43, 20, 43);
+}
+
+
+.subnav-page {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: rgb(43, 20, 43);
+    width: 100%;
+}
+
+.subnav:hover .subnav-page {
+    display:block;
+}
+
+.subnav-page a {
+    color: white;
+}
+
+.subnav-page a:hover {
+    background-color: rgb(112, 2, 255);
+}
+
+a {
+    color: white;
+}
+
+a.buttonlook {
+    background-color: rgb(112, 2, 255);
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+img.imagedisplay {
+    margin-top: 60px;
+    border-radius: 10px;
+}
