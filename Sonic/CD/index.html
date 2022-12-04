@@ -32,13 +32,13 @@
 <script>
     var EXEDOWNLOAD = document.getElementById("EXEDOWNLOAD");
 
-    function alertjsontest() {
+    function getDownloadLink() {
         const GitHubLatest = JSON.parse(fetchdownloadlink.responseText);
-        EXEDOWNLOAD.href = GitHubLatest.assets[0].browser_download_url
+        EXEDOWNLOAD.href = GitHubLatest.assets[0].browser_download_url;
     }
 
     const fetchdownloadlink = new XMLHttpRequest();
-    fetchdownloadlink.addEventListener("load", alertjsontest);
+    fetchdownloadlink.addEventListener("load", getDownloadLink);
     fetchdownloadlink.open("GET", "https://api.github.com/repos/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH/releases/latest");
     fetchdownloadlink.send();
     
