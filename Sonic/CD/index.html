@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/data/style.css">
+    <link rel="stylesheet" href="http://rtm.boxu.ga/data/style.css">
     <title>Sonic CD RTM Tool - Boxuga's RTM Tools</title>
 </head>
 <body>
@@ -19,10 +19,14 @@
     </div> 
     <center>
         <h1>Sonic CD RTM Tool</h1><br>
+        <iframe width="512" height="326" src="https://www.youtube-nocookie.com/embed/5klCOcOTvFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>
+        <h3 id="version"></h3>
+        <p id="currentversionchangelog"></p><br>
         <a id="EXEDOWNLOAD" class="buttonlook" href="https://github.com/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH/releases">Xbox 360 RGH/JTAG</a>
         <a class="buttonlook" href="https://github.com/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH">Github Repo</a>
         <br>
-        <img class="imagedisplay" src="https://github.com/BoxxyDEV/rtm.boxu.ga/raw/main/Sonic/CD/data/SonicCDRTMToolforXbox360RGH.png" alt=""><br>
+        
+        <img class="imagedisplay" src="http://rtm.boxu.ga/Sonic/CD/data/SonicCDRTMToolforXbox360RGH.png" alt=""><br>
         <h3>Modify your Rings, Score, & Lives right from your Computer using XRPC</h3>
         <h4>Xbox 360 RGH Instructions</h4>
         <h5>- Make sure you have Xbox Neighbourhood Installed - if you don't here is a <a target="_blank" href="https://youtu.be/aqmO-T7LlTc">video by modded warefare</a></h5>
@@ -31,14 +35,18 @@
 </body>
 <script>
     var EXEDOWNLOAD = document.getElementById("EXEDOWNLOAD");
+    var version = document.getElementById("version");
+    var currentversionchangelog = document.getElementById("currentversionchangelog");
 
-    function getDownloadLink() {
+    function GrabReleaseInformation() {
         const GitHubLatest = JSON.parse(fetchdownloadlink.responseText);
         EXEDOWNLOAD.href = GitHubLatest.assets[0].browser_download_url;
+        version.innerText = "Sonic CD RTM Tool " + GitHubLatest.tag_name + " changelog";
+        currentversionchangelog.innerText = GitHubLatest.body;
     }
 
     const fetchdownloadlink = new XMLHttpRequest();
-    fetchdownloadlink.addEventListener("load", getDownloadLink);
+    fetchdownloadlink.addEventListener("load", GrabReleaseInformation);
     fetchdownloadlink.open("GET", "https://api.github.com/repos/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH/releases/latest");
     fetchdownloadlink.send();
     
