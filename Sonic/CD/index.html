@@ -19,7 +19,7 @@
     </div> 
     <center>
         <h1>Sonic CD RTM Tool</h1><br>
-        <a class="buttonlook" href="https://github.com/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH/releases/download/1.0/SonicCDRTMbyBoxuga.exe">Xbox 360 RGH/JTAG</a>
+        <a id="EXEDOWNLOAD" class="buttonlook" href="https://github.com/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH/releases">Xbox 360 RGH/JTAG</a>
         <a class="buttonlook" href="https://github.com/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH">Github Repo</a>
         <br>
         <img class="imagedisplay" src="https://github.com/BoxxyDEV/rtm.boxu.ga/raw/main/Sonic/CD/data/SonicCDRTMToolforXbox360RGH.png" alt=""><br>
@@ -29,4 +29,18 @@
         <h5>- Open the Program and click connect and you can just mess with Sonic CD</h5>
     </center>
 </body>
+<script>
+    var EXEDOWNLOAD = document.getElementById("EXEDOWNLOAD");
+
+    function alertjsontest() {
+        const GitHubLatest = JSON.parse(fetchdownloadlink.responseText);
+        EXEDOWNLOAD.href = GitHubLatest.assets[0].browser_download_url
+    }
+
+    const fetchdownloadlink = new XMLHttpRequest();
+    fetchdownloadlink.addEventListener("load", alertjsontest);
+    fetchdownloadlink.open("GET", "https://api.github.com/repos/BoxxyDEV/SonicCD-RTM-Tool-Xbox360RGH/releases/latest");
+    fetchdownloadlink.send();
+    
+</script>
 </html>
